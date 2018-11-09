@@ -4,10 +4,11 @@ class splashImage extends PIXI.Container {
     super();
     this._step = 0;
     this._rad = Math.PI/180;
+    this._span = 360/6;
     this._myScene = myScene;
     this._sprite = new PIXI.Sprite(PIXI.Texture.fromImage(path));
     this._maskSpr = new PIXI.Graphics();
-    // this._maskParticles = [];
+    
     this.addChild(this._sprite);
     this.addChild(this._maskSpr);
     
@@ -109,7 +110,6 @@ class splashImage extends PIXI.Container {
     this._maskSpr.endFill();
 
     if (Math.abs(1000 - this._step) < 0.5) {
-      //-  console.log('end');
       this._isAnimate = false;
     }
   }
@@ -129,7 +129,6 @@ class splashImage extends PIXI.Container {
     this._maskSpr.endFill();
 
     if (Math.abs(_span - this._step) < 0) {
-      //-  console.log('end');
       this._isAnimate = false;
     }
   }

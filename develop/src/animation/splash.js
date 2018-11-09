@@ -69,7 +69,7 @@ class splash  {
     this._logoSpr.x = window.innerWidth/2;
     this._logoSpr.y = window.innerHeight/2;
     
-    if (this._sceneCount > 50) {
+    if (this._sceneCount > 150) {
       this._sceneCount = 1;
       this.current_scene ++;
       if (this.current_scene > 6)  this.current_scene = 1;
