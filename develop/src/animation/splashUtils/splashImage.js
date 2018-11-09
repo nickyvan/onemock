@@ -44,10 +44,6 @@ class splashImage extends PIXI.Container {
     this.scale.x = this.scale.y = 1;
     this._maskSpr.clear();
     this._step = 0;
-    // for (let i=0; i<this._maskParticles.length; i++)  {
-    //   this._maskParticles[i].scale.x = this._maskParticles[i].scale.y = 0;
-    // }
-    this._moveRatio = {x:0, y:0};
   }
 
   update = (move_pattern):void => {
@@ -100,6 +96,9 @@ class splashImage extends PIXI.Container {
     this.scale.x += (1.2 - this.scale.x)/20;
     this.scale.y = this.scale.x;
     this._blurFilter.blur += (20 - this._blurFilter.blur)/5;
+    if(this.alpha<0.1){
+      this.reset();
+    }
   }
 
   ovalChange = ():void => {
@@ -136,7 +135,6 @@ class splashImage extends PIXI.Container {
   }
 
   roundChange = ():void => {
-    //-  console.log('carc');
     this._step += 2;
 
     this._maskSpr.clear();
@@ -159,7 +157,6 @@ class splashImage extends PIXI.Container {
     this._maskSpr.endFill();
 
     if (this._step >= this._span * 2) {
-      //-  console.log('end');
       this._isAnimate = false;
     }
   }
